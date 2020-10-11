@@ -69,7 +69,7 @@ class LatexProject:
         main_template_path = Path.cwd() / 'template_main.tex'
         main_template = [line.rstrip() for line in main_template_path.open('r')]
         title_index = main_template.index('\\title{insert_title}')
-        target_indices = {title_index : 'doc_title',
+        target_indices = {title_index : 'title',
                           title_index + 1 : 'author',
                           title_index + 2 : 'date'}
         for i in target_indices.keys():
