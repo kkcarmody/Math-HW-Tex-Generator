@@ -1,0 +1,13 @@
+\section*{2.3 Simple Functions}
+\begin{problem}[2.33]\label{pr}
+    Let $X$ be uncountable and let $\F$ the $\sigma$-field of countable or cocountable subsets of $X$. Show that a function $f : X \rightarrow \mathbb{C}$ is measurable iff $f$ is constant on some cocountable set. [Use 2.3.1]
+\end{problem}
+
+\noindent\textit{Solution:} \\
+    $[\implies]$ Let $f$ be $\F$-measurable. Assume $f > 0$, so by Theorem 2.3.1, there exists a sequence of simple functions $f_n \uparrow f$. Each of these simple functions $f_n$ can itself be decomposed into two simple functions, one on a sequence of countable sets $A_i$ and one on a sequence of cocountable sets $B_j$. So $f$ is a constant equal to $\lim_{n} c_n$ on the cocountable set $\Big(\bigcap_i A_i^c\Big) \cap \left(\bigcap_j B_j\right)$.\\
+    \\
+    For the case when $f$ also takes $0$ or negative values, we can take a trick from the proof for 2.3.1 and apply the same argument to show that each of $f^+$ and $f^-$ is constant on a cocountable set; then $f$ is the difference between these two constants on the intersection of the cocountable sets. Similarly, if $f$ takes non-real values in $\mathbb{C}$ the same arguments can be applied to the real and imaginary portions of $f$. \\
+    \\
+    $[\impliedby]$ Now let $f : X \rightarrow \mathbb{C}$ be constant on some cocountable set $A^c \in X$, i.e., $\forall x \in A^c, f(x) = c \in \mathbb{C}$. Then we have that $f^{-1}(c) = A^c$ and for any other value $b \in \mathbb{C}$, we have $f^{-1}(b) \in A$ where $A$ is countable. So the preimage of any set $C \in \mathbb{C}$ is a countable union of elements chosen from $\set{A^c, a_1, a_2, \ldots}$ and therefore is in $\F$.
+    
+\vspace{10mm}

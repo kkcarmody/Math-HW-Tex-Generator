@@ -1,0 +1,96 @@
+\ProvidesPackage{preamble}
+
+% Predefined Packages
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[mathscr]{euscript}
+\let\euscr\mathscr \let\mathscr\relax
+\usepackage[scr]{rsfso}
+
+% Paired Delimiters
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\DeclarePairedDelimiter\set{\left\{}{\right\}}%
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\parens{\left(}{\right)}
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+
+% Custom commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\F}{\mathcal{F}}
+
+\newcommand{\B}{\euscr{B}}
+\newcommand{\A}{\euscr{A}}
+\newcommand{\C}{\euscr{C}}
+\newcommand{\O}{\euscr{O}}
+\newcommand{\H}{\euscr{H}}
+\newcommand{\M}{\euscr{M}}
+
+\newcommand{\Pow}{\mathcal{P}}
+
+\newcommand{\closure}[1]{\operatorname{cl}(#1)}
+\newcommand{\interior}[1]{\operatorname{int}(#1)}
+\newcommand{\boundary}[1]{\operatorname{bd}(#1)}
+\newcommand{\partials}[2]{\frac{\partial #1}{\partial #2}}
+
+
+% theorem environments
+\makeatletter
+\def\th@plain{%
+  \thm@notefont{}% same as heading font
+  \itshape % body font
+}
+\def\th@definition{%
+  \thm@notefont{}% same as heading font
+  \normalfont % body font
+}
+\makeatother
+
+\newcounter{example}[section]
+\newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+   \noindent \textbf{Example~\theexample. #1} \rmfamily}{\medskip}
+ 
+\newcounter{question}[section]
+\newenvironment{question}[1][]{\refstepcounter{question}\par\medskip
+    \noindent   \textbf{Question~\thequestion. #1} \rmfaily}{\medskip}
+    
+ 
+\theoremstyle{theorem}
+\newtheorem{problem}{Problem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{solution}[1][]{\paragraph{\bf Solution#1}}{\smallskip}{}
+
+
+% Non-Numbered environments
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
